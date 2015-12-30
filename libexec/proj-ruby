@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Usage: proj ruby
+# Summary: create a new ruby project directory
+# Help: 
+#
+source "$_PROJ_ROOT/lib/proj_functions"
+set -e
+
+banner
+
+###########################################################
+# check required params
+APP=$1
+VERSION=$2
+
+###########################################################
+action "create project directory"
+  mkdir $APP
+ok
+
+###########################################################
+action "create virtual environment"
+  #   .ruby-version
+  touch $APP/.ruby-version
+  echo $VERSION >> $APP/.ruby-version
+  #   .ruby-gemset
+  touch $APP/.ruby-gemset
+  echo $APP >> $APP/.ruby-gemset
+ok
+
+
+###########################################################
+action "initialize"
+  cd $APP
+  # create Gemfile
+  bundle init
+ok
+
+exit

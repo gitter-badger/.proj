@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Usage: proj python
+# Summary: create a new python project directory
+# Help: 
+#
+source "$_PROJ_ROOT/lib/proj_functions"
+set -e
+
+banner
+
+###########################################################
+# check required params
+APP=$1
+VERSION=$2
+
+###########################################################
+action "create project directory"
+ok
+
+###########################################################
+action "create virtual environment"
+ok
+
+###########################################################
+action "initialize"
+ok
+
+# pyenv install 2.7.11
+# pyenv install 3.5.1
+# pyenv rehash
+
+# # list virtualenvs
+# pyenv virtualenvs
+
+# # create a new virtualenv
+# pyenv virtualenv $ENV_NAME
+
+# # destroy a  virtualenv
+# pyenv uninstall $ENV_NAME
+
+# # create a directory switch for a virtualenv
+# python local $ENV_NAME
+
+exit
