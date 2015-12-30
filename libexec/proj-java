@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 # Usage: proj java
-# Summary: write a summary for your new proj command
-# Help: This will print out when you run proj help java
-# You can have multiple lines even!
-#
-#    Show off an example indented
+# Summary: create a new java project directory
+# Help:
 #
 source "$_PROJ_ROOT/lib/proj_functions"
 set -e

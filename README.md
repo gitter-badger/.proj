@@ -9,7 +9,7 @@ git clone git@github.com:bhedana/.proj.git ~/.proj
 
 See what commands are available:
 ```bash
-~/.proj/bin/proj commands
+~/.proj/bin/proj
 ```
 
 See detailed help for commands:

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 # Usage: proj sub
-# Summary: write a summary for your new proj command
-# Help: This will print out when you run proj help sub
-# You can have multiple lines even!
-#
-#    Show off an example indented
+# Summary: create a new subcommand project directory
+# Help:
 #
 source "$_PROJ_ROOT/lib/proj_functions"
 set -e
