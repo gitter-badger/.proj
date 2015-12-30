@@ -26,27 +26,7 @@ if [ -s "$command_file" ]
     action "create $command_file"
     touch $command_file
     chmod a+x $command_file
-    cat >$command_file <<EOL
-#!/usr/bin/env bash
-# Usage: proj $1
-# Summary: write a summary for your new proj command
-# Help: This will print out when you run proj help $1
-# You can have multiple lines even!
-#
-#    Show off an example indented
-#
-source "\$_PROJ_ROOT/lib/proj_functions"
-set -e
-
-banner
-
-bot "proj"
-
-action "do a thing"
-ok
-
-die
-EOL
+    echo "$TEMPLATE" > $command_file
     ok
 fi
 

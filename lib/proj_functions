@@ -16,6 +16,7 @@ COL_MAGENTA=$ESC_SEQ"35;01m"
 COL_CYAN=$ESC_SEQ"36;01m"
 
 function banner() {
+  clear
   info '
                _                      _       
   ___ ___   __| | ___ _ __ ___  _ __ (_)_ __  
@@ -66,24 +67,21 @@ function file_writeln {
   ok
 }
 
-function set_config_var() {
-  lua - "$1" "$2" "$3" <<EOF > "$3.bak"
-local key=assert(arg[1])
-local value=assert(arg[2])
-local fn=assert(arg[3])
-local file=assert(io.open(fn))
-local made_change=false
-for line in file:lines() do
-  if line:match("^#?%s*"..key.."=.*$") then
-    line=key.."="..value
-    made_change=true
-  end
-  print(line)
-end
+TEMPLATE='#!/usr/bin/env bash
+# Usage: proj $1
+# Summary: write a summary for your new proj command
+# Help: This will print out when you run proj help $1
+# You can have multiple lines even!
+#
+#    Show off an example indented
+#
+source "\$_PROJ_ROOT/lib/proj_functions"
+set -e
 
-if not made_change then
-  print(key.."="..value)
-end
-EOF
-mv "$3.bak" "$3"
-}
+banner
+
+action "do a thing"
+ok
+
+exit
+'
