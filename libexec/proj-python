@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 # Usage: proj python
 # Summary: create a new python project directory
-# Help: 
+# Help:
 #
 source "$_PROJ_ROOT/lib/proj_functions"
-set -e
 
 banner
+
+if [ -z "$1" ] && [ -z "$2" ]; then
+  die '$1 should be the name of your project $2 should be the python version number'
+fi
 
 ###########################################################
 # check required params
@@ -15,14 +18,18 @@ VERSION=$2
 
 ###########################################################
 action "create project directory"
+  mkdir $APP
 ok
 
 ###########################################################
 action "create virtual environment"
+  pyenv virtualenv $VERSION
 ok
 
 ###########################################################
 action "initialize"
+  echo "$VERSION" > $APP/.python-version
+  echo "$APP" > $APP/.python-virtualenv
 ok
 
 # pyenv install 2.7.11
@@ -33,12 +40,12 @@ ok
 # pyenv virtualenvs
 
 # # create a new virtualenv
-# pyenv virtualenv $ENV_NAME
+# pyenv virtualenv $APP
 
 # # destroy a  virtualenv
-# pyenv uninstall $ENV_NAME
+# pyenv uninstall $APP
 
 # # create a directory switch for a virtualenv
-# python local $ENV_NAME
+# pyenv local $APP
 
 exit

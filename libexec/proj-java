@@ -8,6 +8,10 @@ set -e
 
 banner
 
+if [ -z "$1" ] && [ -z "$2" ]; then
+  die '$1 should be the name of your project $2 should be the java version number'
+fi
+
 ###########################################################
 # check required params
 APP=$1

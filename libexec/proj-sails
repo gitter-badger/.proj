@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-# Usage: proj node
-# Summary: create a new nodejs project directory
-# Help:
+# Usage: proj $1
+# Summary: write a summary for your new proj command
+# Help: This will print out when you run proj help $1
+# You can have multiple lines even!
 #
-source "$_PROJ_ROOT/lib/proj_functions"
+#    Show off an example indented
+#
+source "\$_PROJ_ROOT/lib/proj_functions"
 set -e
 
 banner
@@ -26,20 +29,25 @@ ok
 action "initialize"
   touch $APP/.env
   echo "nvm use $VERSION
-  export OLDPATH=\$PATH
-  export PATH=`pwd`/node_modules/.bin:\$PATH
+  export OLDPATH=$PATH
+  export PATH=`pwd`/node_modules/.bin:$PATH
   " > $APP/.env
 
   touch $APP/.out
   echo "
   nvm use system
-  export PATH=\$OLDPATH
+  export PATH=$OLDPATH
   " > $APP/.out
 ok
 
-cd $APP
-npm init
-
-# create .nvmrc file
-
 exit
+
+# sails new SailsTest
+# cd SailsTest
+# sails generate bower
+# npm install sails-generate-bower
+# sails generate bower
+# npm install
+# bower install jquery --save
+# bower install bootstrap --save
+# sails lift

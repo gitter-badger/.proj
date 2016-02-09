@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 # Usage: proj ruby
 # Summary: create a new ruby project directory
-# Help: 
+# Help:
 #
 source "$_PROJ_ROOT/lib/proj_functions"
 set -e
 
 banner
+
+if [ -z "$1" ] && [ -z "$2" ]; then
+  die '$1 should be the name of your project $2 should be the ruby version number'
+fi
 
 ###########################################################
 # check required params
