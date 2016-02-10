@@ -37,9 +37,10 @@ export PATH=\$OLDPATH
 " > $APP/.out
 ok
 
-cd $APP
-npm init
-
+action "Initialize NPM"
+  cd $APP
+  npm init
+ok
 # create .nvmrc file
 
 exit
