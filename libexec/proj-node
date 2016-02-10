@@ -26,15 +26,15 @@ ok
 action "initialize"
   touch $APP/.env
   echo "nvm use $VERSION
-  export OLDPATH=\$PATH
-  export PATH=`pwd`/node_modules/.bin:\$PATH
-  " > $APP/.env
+export OLDPATH=\$PATH
+export PATH=`pwd`/node_modules/.bin:\$PATH
+" > $APP/.env
 
   touch $APP/.out
   echo "
-  nvm use system
-  export PATH=\$OLDPATH
-  " > $APP/.out
+nvm use system
+export PATH=\$OLDPATH
+" > $APP/.out
 ok
 
 cd $APP
