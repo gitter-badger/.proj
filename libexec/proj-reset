@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Usage: proj reset
+# Summary: pull upstream changes squashing any local changes
+# Help:
+#
+source "$_PROJ_ROOT/lib/proj_functions"
+set -e
+
+bot "Discarding local changes and updating dotProj"
+
+action "fetch repo data"
+( cd $_PROJ_ROOT && git fetch 2>&1 )
+ok
+
+action "pull master branch"
+( cd $_PROJ_ROOT && git reset --hard origin/master 2>&1 )
+ok
+
+exit
