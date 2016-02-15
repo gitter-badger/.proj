@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/bhedana/.proj.png?label=ready&title=Ready)](https://waffle.io/bhedana/.proj)
 # New Project Virtual environment setup
 create new project directories and populate them with config files for their respective discipline
 
